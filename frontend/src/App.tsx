@@ -1,28 +1,36 @@
-import { useEffect, useState } from "react";
-import { checkHealth } from "./api/client";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AppHeader from "./components/AppHeader";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
+import AttemptWorkspacePage from "./pages/AttemptWorkspacePage";
+import FeedbackPage from "./pages/FeedbackPage";
+import HistoryPage from "./pages/HistoryPage";
+import LoginPage from "./pages/LoginPage";
+import ProblemDetailPage from "./pages/ProblemDetailPage";
+import ProblemListPage from "./pages/ProblemListPage";
+import SignupPage from "./pages/SignupPage";
 
-// Placeholder shell: proves the React app, Vite dev proxy, dotenv-driven
-// backend config and CORS are all wired together. Real routing between
-// ProblemList -> ProblemDetail -> AttemptWorkspace -> Feedback -> History
-// pages replaces this once the domain/application layers exist.
 export default function App() {
-  const [status, setStatus] = useState<"checking" | "ok" | "error">("checking");
-
-  useEffect(() => {
-    checkHealth()
-      .then(() => setStatus("ok"))
-      .catch(() => setStatus("error"));
-  }, []);
-
   return (
-    <main style={{ fontFamily: "sans-serif", padding: "2rem" }}>
-      <h1>LLD Practice Platform</h1>
-      <p>
-        Backend connection:{" "}
-        {status === "checking" && "checking..."}
-        {status === "ok" && "connected"}
-        {status === "error" && "unreachable (is the backend running on :4000?)"}
-      </p>
-    </main>
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="app-shell">
+          <AppHeader />
+          <main className="app-main">
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="/" element={<ProblemListPage />} />
+                <Route path="/problems/:problemId" element={<ProblemDetailPage />} />
+                <Route path="/attempts/:attemptId" element={<AttemptWorkspacePage />} />
+                <Route path="/submissions/:submissionId" element={<FeedbackPage />} />
+                <Route path="/history" element={<HistoryPage />} />
+              </Route>
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
