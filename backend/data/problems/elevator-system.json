@@ -1,0 +1,19 @@
+{
+  "slug": "elevator-system",
+  "title": "Elevator System",
+  "difficulty": "medium",
+  "summary": "Design the control logic for a bank of elevators in an office building that serves pickup requests and gets each car to its destinations.",
+  "requirements": [
+    "Handle external requests (a floor button press with a direction) and internal requests (a destination button press inside a car).",
+    "Decide which elevator car should service a given request.",
+    "Move each car between floors, opening and closing doors at stops.",
+    "Support more than one elevator car operating independently in the same building.",
+    "Handle a new request for a floor that's already on a car's current route."
+  ],
+  "constraints": [
+    "The building has a fixed number of floors and a fixed number of elevator cars.",
+    "Assume requests can arrive faster than a single car could possibly service them.",
+    "You don't need optimal scheduling - a reasonable dispatch strategy is enough, but explain it."
+  ],
+  "requiredConcepts": ["Elevator", "Request", "Floor", "Dispatcher", "direction"]
+}

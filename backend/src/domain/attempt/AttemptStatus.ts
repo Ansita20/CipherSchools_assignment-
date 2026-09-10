@@ -1,1 +1,1 @@
-// Value object / enum: lifecycle states of an Attempt
+export type AttemptStatus = "in_progress" | "submitted";

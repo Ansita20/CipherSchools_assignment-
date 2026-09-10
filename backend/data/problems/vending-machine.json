@@ -1,0 +1,19 @@
+{
+  "slug": "vending-machine",
+  "title": "Vending Machine",
+  "difficulty": "easy",
+  "summary": "Design a vending machine that accepts payment, dispenses a selected product, and returns change.",
+  "requirements": [
+    "Display available products with their price and remaining stock.",
+    "Accept payment inserted incrementally (coins/cash) and track the running balance.",
+    "Dispense the selected product once payment covers its price.",
+    "Return change if the inserted amount exceeds the price.",
+    "Reject a selection that's out of stock, and refuse to dispense if payment is insufficient."
+  ],
+  "constraints": [
+    "The machine accepts and dispenses change only in a fixed set of denominations.",
+    "Assume a single machine, not a fleet.",
+    "You may assume the machine always has enough change available, or design for the case where it doesn't - your call, but say which you picked."
+  ],
+  "requiredConcepts": ["Product", "Inventory", "Payment", "change", "dispense"]
+}

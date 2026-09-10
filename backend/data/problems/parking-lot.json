@@ -1,0 +1,19 @@
+{
+  "slug": "parking-lot",
+  "title": "Parking Lot",
+  "difficulty": "easy",
+  "summary": "Design a parking lot system for a multi-level garage that assigns spots to vehicles of different sizes, tracks availability, and calculates a fee when the vehicle leaves.",
+  "requirements": [
+    "Support multiple vehicle types (motorcycle, car, bus) with different spot size requirements.",
+    "Assign an available spot to an entering vehicle and free it when the vehicle leaves.",
+    "Track how many spots are free, per level and per spot size.",
+    "Calculate a parking fee based on how long the vehicle stayed.",
+    "Handle the case where the lot (or a needed spot size) is full."
+  ],
+  "constraints": [
+    "The lot has multiple levels, each with a fixed number of spots of each size.",
+    "A bus can only park in a large spot; a motorcycle can park in any spot size.",
+    "Assume a single entry/exit gate per level for this design."
+  ],
+  "requiredConcepts": ["Vehicle", "ParkingSpot", "Ticket", "Level", "fee"]
+}
