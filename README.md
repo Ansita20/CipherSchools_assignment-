@@ -4,6 +4,10 @@ A small prototype for practicing Low-Level Design: pick a problem, write a struc
 
 See [`docs/RESEARCH_NOTE.md`](docs/RESEARCH_NOTE.md) for the problem/market research and [`docs/DESIGN_NOTE.md`](docs/DESIGN_NOTE.md) for the domain model, evaluation approach, and trade-offs. This file is just "how do I run it."
 
+## Video
+
+https://github.com/user-attachments/assets/77f002c0-d52d-4399-a928-5261809bb85d
+
 ## Stack
 
 - **Backend:** Node.js + TypeScript, Express, SQLite (`better-sqlite3`). AI-assisted feedback via either the Anthropic API (`@anthropic-ai/sdk`) or the Gemini API (`@google/genai`) - both implement the same `Evaluator` interface, so which one runs is a config choice, not a code change. Auth is email/password with `node:crypto` scrypt hashing and a JWT session in an httpOnly cookie (`jsonwebtoken` + `cookie-parser`) - no bcrypt, no session table. Plain domain classes/interfaces, no framework beyond Express - see the Design Note for why.
